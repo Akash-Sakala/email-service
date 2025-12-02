@@ -50,7 +50,7 @@ npm install
 
 ### 2. Copy `.env.example` → `.env`
 ```
-APP_EMAIL=yourgmail@gmail.com
+SENDER_GMAIL=yourgmail@gmail.com
 APP_PASSWORD=your-gmail-app-password
 ```
 
@@ -126,7 +126,7 @@ class EmailService {
     this.transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.APP_EMAIL,
+        user: process.env.SENDER_GMAIL,
         pass: process.env.APP_PASSWORD,
       },
     });
@@ -134,7 +134,7 @@ class EmailService {
 
   async send(to, subject, html) {
     const mailOptions = {
-      from: process.env.APP_EMAIL,
+      from: process.env.SENDER_GMAIL,
       to,
       subject,
       html,
